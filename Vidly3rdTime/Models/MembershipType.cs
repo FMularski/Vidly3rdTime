@@ -11,5 +11,6 @@ namespace Vidly3rdTime.Models
         public short SignUpFee { get; set; }
         public byte DurationInMonths { get; set; }
         public byte DiscountRate { get; set; }
+        public List<Customer> Customers { get; set; }
     }
 }

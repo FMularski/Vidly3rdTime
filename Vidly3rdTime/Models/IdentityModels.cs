@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Vidly3rdTime.EntitiesConfigurations;
 
 namespace Vidly3rdTime.Models
 {
@@ -29,6 +30,14 @@ namespace Vidly3rdTime.Models
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new CustomerConfiguration());
+            modelBuilder.Configurations.Add(new MovieConfiguration());
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

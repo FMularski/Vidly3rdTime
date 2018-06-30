@@ -196,8 +196,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="EntitiesConfigurations\CustomerConfiguration.cs" />
+    <Compile Include="EntitiesConfigurations\MovieConfiguration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -220,6 +223,14 @@
     <Compile Include="Migrations\201806302121063_AddedMembershipTypeIdToCustomersTable.cs" />
     <Compile Include="Migrations\201806302121063_AddedMembershipTypeIdToCustomersTable.Designer.cs">
       <DependentUpon>201806302121063_AddedMembershipTypeIdToCustomersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806302124325_PopulateMemebrshipTypesTable.cs" />
+    <Compile Include="Migrations\201806302124325_PopulateMemebrshipTypesTable.Designer.cs">
+      <DependentUpon>201806302124325_PopulateMemebrshipTypesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806302147403_FluentAPIToCustomers_MoviesTables.cs" />
+    <Compile Include="Migrations\201806302147403_FluentAPIToCustomers_MoviesTables.Designer.cs">
+      <DependentUpon>201806302147403_FluentAPIToCustomers_MoviesTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -290,6 +301,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -322,6 +335,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806302121063_AddedMembershipTypeIdToCustomersTable.resx">
       <DependentUpon>201806302121063_AddedMembershipTypeIdToCustomersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806302124325_PopulateMemebrshipTypesTable.resx">
+      <DependentUpon>201806302124325_PopulateMemebrshipTypesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806302147403_FluentAPIToCustomers_MoviesTables.resx">
+      <DependentUpon>201806302147403_FluentAPIToCustomers_MoviesTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
