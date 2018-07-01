@@ -8,11 +8,11 @@ using System.Data.Entity;
 
 namespace Vidly3rdTime.Controllers
 {
-    public class CustomersController : Controller
+    public class MoviesController : Controller
     {
         private ApplicationDbContext Context;
 
-        public CustomersController()
+        public MoviesController()
         {
             Context = new ApplicationDbContext();
         }
@@ -24,17 +24,17 @@ namespace Vidly3rdTime.Controllers
 
         public ActionResult Index()
         {
-            return View(Context.Customers.Include( c => c.MembershipType));
+            return View(Context.Movies.Include(m => m.Genre));
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details( int id)
         {
-            var customer = Context.Customers.Include( c => c.MembershipType).SingleOrDefault(c => c.Id == id);
+            var movie = Context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
 
-            if (customer == null)
+            if (movie == null)
                 return HttpNotFound();
 
-            return View(customer);
+            return View(movie);
         }
     }
 }

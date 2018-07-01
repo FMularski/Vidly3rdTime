@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Vidly3rdTime.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Movies</h1>
+
+@if (!Model.Any())
+{
+    <p>No movies.</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Genre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, null)</td>
+                    <td>@movie.Genre.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+

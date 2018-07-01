@@ -199,7 +199,9 @@
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="EntitiesConfigurations\CustomerConfiguration.cs" />
+    <Compile Include="EntitiesConfigurations\MembershipTypeConfiguration.cs" />
     <Compile Include="EntitiesConfigurations\MovieConfiguration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -232,9 +234,38 @@
     <Compile Include="Migrations\201806302147403_FluentAPIToCustomers_MoviesTables.Designer.cs">
       <DependentUpon>201806302147403_FluentAPIToCustomers_MoviesTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807010735441_AddedNmeColumnInMembeshipTypesTable.cs" />
+    <Compile Include="Migrations\201807010735441_AddedNmeColumnInMembeshipTypesTable.Designer.cs">
+      <DependentUpon>201807010735441_AddedNmeColumnInMembeshipTypesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807010740471_UpdatedMembershipTypesNames.cs" />
+    <Compile Include="Migrations\201807010740471_UpdatedMembershipTypesNames.Designer.cs">
+      <DependentUpon>201807010740471_UpdatedMembershipTypesNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807010751157_AddedBirthdateColumnToCustomersTable.cs" />
+    <Compile Include="Migrations\201807010751157_AddedBirthdateColumnToCustomersTable.Designer.cs">
+      <DependentUpon>201807010751157_AddedBirthdateColumnToCustomersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807010800202_CreatedGenresTable.cs" />
+    <Compile Include="Migrations\201807010800202_CreatedGenresTable.Designer.cs">
+      <DependentUpon>201807010800202_CreatedGenresTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807010801060_AddedGenreColumnToMoviesTable.cs" />
+    <Compile Include="Migrations\201807010801060_AddedGenreColumnToMoviesTable.Designer.cs">
+      <DependentUpon>201807010801060_AddedGenreColumnToMoviesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807010803058_PopulateGenresTable.cs" />
+    <Compile Include="Migrations\201807010803058_PopulateGenresTable.Designer.cs">
+      <DependentUpon>201807010803058_PopulateGenresTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807010823162_AddedDateRealesed_DateAdded_NumberInStockColumnsInMoviesTable.cs" />
+    <Compile Include="Migrations\201807010823162_AddedDateRealesed_DateAdded_NumberInStockColumnsInMoviesTable.Designer.cs">
+      <DependentUpon>201807010823162_AddedDateRealesed_DateAdded_NumberInStockColumnsInMoviesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -243,6 +274,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -303,6 +335,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -341,6 +375,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806302147403_FluentAPIToCustomers_MoviesTables.resx">
       <DependentUpon>201806302147403_FluentAPIToCustomers_MoviesTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807010735441_AddedNmeColumnInMembeshipTypesTable.resx">
+      <DependentUpon>201807010735441_AddedNmeColumnInMembeshipTypesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807010740471_UpdatedMembershipTypesNames.resx">
+      <DependentUpon>201807010740471_UpdatedMembershipTypesNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807010751157_AddedBirthdateColumnToCustomersTable.resx">
+      <DependentUpon>201807010751157_AddedBirthdateColumnToCustomersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807010800202_CreatedGenresTable.resx">
+      <DependentUpon>201807010800202_CreatedGenresTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807010801060_AddedGenreColumnToMoviesTable.resx">
+      <DependentUpon>201807010801060_AddedGenreColumnToMoviesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807010803058_PopulateGenresTable.resx">
+      <DependentUpon>201807010803058_PopulateGenresTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807010823162_AddedDateRealesed_DateAdded_NumberInStockColumnsInMoviesTable.resx">
+      <DependentUpon>201807010823162_AddedDateRealesed_DateAdded_NumberInStockColumnsInMoviesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

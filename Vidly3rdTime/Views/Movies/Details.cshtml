@@ -1,0 +1,22 @@
+﻿@model Vidly3rdTime.Models.Movie
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1>@Model.Name</h1>
+<ul>
+    <li>
+        Genre: @Model.Genre.Name
+    </li>
+    <li>
+        Release Date: @Model.DateRealesed.ToLongDateString()
+    </li>
+    <li>
+        Date Added: @Model.DateAdded.ToLongDateString()
+    </li>
+    <li>
+        Number in Stock: @Model.NumberInStock
+    </li>
+</ul>
+

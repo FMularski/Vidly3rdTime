@@ -7,17 +7,13 @@ using Vidly3rdTime.Models;
 
 namespace Vidly3rdTime.EntitiesConfigurations
 {
-    public class MovieConfiguration : EntityTypeConfiguration<Movie>
+    public class MembershipTypeConfiguration : EntityTypeConfiguration<MembershipType>
     {
-        public MovieConfiguration()
+        public MembershipTypeConfiguration()
         {
             Property(m => m.Name)
                 .IsRequired()
-                .HasMaxLength(255);
-
-            HasRequired(m => m.Genre)
-                .WithMany(g => g.Movies)
-                .HasForeignKey(m => m.GenreId);
+                .HasMaxLength(64);
         }
     }
 }
