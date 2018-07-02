@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly3rdTime.Models;
 using System.Data.Entity;
+using Vidly3rdTime.ViewModels;
 
 namespace Vidly3rdTime.Controllers
 {
@@ -27,14 +28,49 @@ namespace Vidly3rdTime.Controllers
             return View(Context.Movies.Include(m => m.Genre));
         }
 
-        public ActionResult Details( int id)
+        public ActionResult New()
         {
-            var movie = Context.Movies.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
+            var vm = new MovieFormViewModel
+            {
+                Genres = Context.Genres.ToList()
+            };
+
+            return View("MovieForm", vm);
+        }
+
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+                Context.Movies.Add(movie);
+            else
+            {
+                var movieInDb = Context.Movies.Single(m => m.Id == movie.Id);
+                movieInDb.Name = movie.Name;
+                movieInDb.DateRealesed = movie.DateRealesed;
+                movieInDb.DateAdded = DateTime.Now;
+                movieInDb.GenreId = movie.GenreId;
+                movieInDb.NumberInStock = movie.NumberInStock;
+            }
+
+            Context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit( int id)
+        {
+            var movie = Context.Movies.SingleOrDefault(m => m.Id == id);
 
             if (movie == null)
                 return HttpNotFound();
 
-            return View(movie);
+            var vm = new MovieFormViewModel
+            {
+                Movie = movie,
+                Genres = Context.Genres.ToList()
+            };
+
+            return View("MovieForm", vm);
         }
     }
 }
