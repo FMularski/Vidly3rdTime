@@ -5,7 +5,6 @@
 
 <h1>Movies</h1>
 
-@Html.ActionLink("New Movie", "New", new { @class = "btn btn-primary"})
 
 @if (!Model.Any())
 {
@@ -32,3 +31,4 @@ else
     </table>
 }
 
+@Html.ActionLink("New Movie", "New", null, new { @class = "btn btn-primary"})

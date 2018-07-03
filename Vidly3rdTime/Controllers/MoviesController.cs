@@ -38,18 +38,31 @@ namespace Vidly3rdTime.Controllers
             return View("MovieForm", vm);
         }
 
-        public ActionResult Save(Movie movie)
+        public ActionResult Save(MovieFormViewModel vm)
         {
-            if (movie.Id == 0)
-                Context.Movies.Add(movie);
+            if ( !ModelState.IsValid)
+            {
+                vm.Genres = Context.Genres.ToList();
+                return View("MovieForm", vm);
+            }
+
+            if (vm.Id == 0)
+                Context.Movies.Add( new Movie
+                {
+                    Name = vm.Name,
+                    DateRealesed = vm.DateReleased.Value,
+                    DateAdded = DateTime.Now,
+                    GenreId = vm.GenreId.Value,
+                    NumberInStock = vm.NumberInStock.Value
+                });
             else
             {
-                var movieInDb = Context.Movies.Single(m => m.Id == movie.Id);
-                movieInDb.Name = movie.Name;
-                movieInDb.DateRealesed = movie.DateRealesed;
+                var movieInDb = Context.Movies.Single(m => m.Id == vm.Id);
+                movieInDb.Name = vm.Name;
+                movieInDb.DateRealesed = vm.DateReleased.Value;
                 movieInDb.DateAdded = DateTime.Now;
-                movieInDb.GenreId = movie.GenreId;
-                movieInDb.NumberInStock = movie.NumberInStock;
+                movieInDb.GenreId = vm.GenreId.Value;
+                movieInDb.NumberInStock = vm.NumberInStock.Value;
             }
 
             Context.SaveChanges();
@@ -64,9 +77,8 @@ namespace Vidly3rdTime.Controllers
             if (movie == null)
                 return HttpNotFound();
 
-            var vm = new MovieFormViewModel
+            var vm = new MovieFormViewModel(movie)
             {
-                Movie = movie,
                 Genres = Context.Genres.ToList()
             };
 

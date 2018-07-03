@@ -30,28 +30,33 @@ namespace Vidly3rdTime.Controllers
 
         public ActionResult New()
         {
-            var vm = new CustomerFormViewModel
+            var vm = new CustomerFormViewModel()
             {
-                MembershipTypes = Context.MembershipTypes.ToList(),
-                Customer = new Customer()
+                MembershipTypes = Context.MembershipTypes.ToList()
             };
 
             return View("CustomerForm", vm);
         }
 
         [HttpPost]
-        public ActionResult Save(Customer customer)
+        public ActionResult Save(CustomerFormViewModel vm)
         {
-            if ( customer.Id == 0)
-                Context.Customers.Add(customer);
+            if ( !ModelState.IsValid)
+            {
+                vm.MembershipTypes = Context.MembershipTypes.ToList();
+                return View("CustomerForm", vm);
+            }
+
+            if ( vm.Id == 0)
+                Context.Customers.Add( vm.CustomerBasedOnViewModel);
             else
             {
-                var customerInDb = Context.Customers.Single(c => c.Id == customer.Id);
+                var customerInDb = Context.Customers.Single(c => c.Id == vm.Id);
 
-                customerInDb.Name = customer.Name;
-                customerInDb.Birthdate = customer.Birthdate;
-                customerInDb.MembershipTypeId = customer.MembershipTypeId;
-                customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+                customerInDb.Name = vm.CustomerBasedOnViewModel.Name;
+                customerInDb.Birthdate = vm.CustomerBasedOnViewModel.Birthdate;
+                customerInDb.MembershipTypeId = vm.CustomerBasedOnViewModel.MembershipTypeId;
+                customerInDb.IsSubscribedToNewsletter = vm.CustomerBasedOnViewModel.IsSubscribedToNewsletter;
             }
             
             Context.SaveChanges();
@@ -66,9 +71,8 @@ namespace Vidly3rdTime.Controllers
             if (customer == null)
                 return HttpNotFound();
 
-            var vm = new CustomerFormViewModel
+            var vm = new CustomerFormViewModel (customer)
             {
-                Customer = customer,
                 MembershipTypes = Context.MembershipTypes.ToList()
             };
 
