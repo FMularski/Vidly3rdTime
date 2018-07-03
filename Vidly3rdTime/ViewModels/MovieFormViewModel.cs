@@ -24,6 +24,7 @@ namespace Vidly3rdTime.ViewModels
         public int? GenreId { get; set; }
 
         [Required(ErrorMessage = "Number in stock value is required.")]
+        [Range(1, 20, ErrorMessage = "Number in Stock value has to be between 1 and 20.")]
         public int? NumberInStock { get; set; }
 
         public MovieFormViewModel()

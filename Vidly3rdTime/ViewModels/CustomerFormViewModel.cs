@@ -19,6 +19,8 @@ namespace Vidly3rdTime.ViewModels
 
         [Required(ErrorMessage = "Membership type is required.")]
         public byte? MembershipTypeId { get; set; }
+
+        [Min18YearsOldIfAMember]
         public DateTime? Birthdate { get; set; }
 
         public bool IsSubscribedToNewsletter { get; set; }

@@ -13,5 +13,11 @@ namespace Vidly3rdTime.Models
         public byte DurationInMonths { get; set; }
         public byte DiscountRate { get; set; }
         public List<Customer> Customers { get; set; }
+
+        public static readonly byte Unknown = 0;
+        public static readonly byte PayAsYouGo = 1;
+        public static readonly byte Monthly = 2;
+        public static readonly byte Quaterly = 3;
+        public static readonly byte Annualy = 4;
     }
 }
