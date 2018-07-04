@@ -211,6 +211,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\CustomersController.cs" />
+    <Compile Include="Controllers\API\MoviesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -281,7 +282,9 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\DTO\CustomerDTO.cs" />
+    <Compile Include="Models\DTO\GenreDTO.cs" />
     <Compile Include="Models\DTO\MembershipTypeDTO.cs" />
+    <Compile Include="Models\DTO\MovieDTO.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

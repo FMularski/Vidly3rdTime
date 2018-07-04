@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Vidly3rdTime.Models.DTO
 {
-    public class CustomerDTO
+    public class MovieDTO
     {
         public int Id { get; set; }
 
@@ -14,14 +14,17 @@ namespace Vidly3rdTime.Models.DTO
         [StringLength(255)]
         public string Name { get; set; }
 
-        public bool IsSubscribedToNewsletter { get; set; }
-
-        [Min18YearsOldIfAMember]
-        public DateTime? Birthdate { get; set; }
-
-        public MembershipTypeDTO MembershipType { get; set; }
+        public GenreDTO Genre { get; set; }
 
         [Required]
-        public byte MembershipTypeId { get; set; }
+        public int GenreId { get; set; }
+
+        [Required]
+        public DateTime DateRealesed { get; set; }
+
+        public DateTime DateAdded { get; set; }
+
+        [Required]
+        public int NumberInStock { get; set; }
     }
 }
