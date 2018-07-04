@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using Vidly3rdTime.Models.DTO;
 using Vidly3rdTime.ViewModels;
 
 namespace Vidly3rdTime.Models
@@ -11,7 +12,7 @@ namespace Vidly3rdTime.Models
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            var customer = (CustomerFormViewModel)validationContext.ObjectInstance;
+            var customer = (CustomerDTO)validationContext.ObjectInstance;
 
             if (customer.MembershipTypeId == null || 
                 customer.MembershipTypeId == MembershipType.PayAsYouGo)

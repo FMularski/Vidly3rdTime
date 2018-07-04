@@ -25,7 +25,7 @@ namespace Vidly3rdTime.Controllers
 
         public ActionResult Index()
         {
-            return View(Context.Customers.Include( c => c.MembershipType));
+            return View();
         }
 
         public ActionResult New()

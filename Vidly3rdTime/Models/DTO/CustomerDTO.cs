@@ -10,18 +10,18 @@ namespace Vidly3rdTime.Models.DTO
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Name is required.")]
         [StringLength(255)]
         public string Name { get; set; }
 
-        public bool IsSubscribedToNewsletter { get; set; }
+        [Required(ErrorMessage = "Membership type is required.")]
+        public byte? MembershipTypeId { get; set; }
+
+        public MembershipTypeDTO MembershipType { get; set; }
 
         [Min18YearsOldIfAMember]
         public DateTime? Birthdate { get; set; }
 
-        public MembershipTypeDTO MembershipType { get; set; }
-
-        [Required]
-        public byte MembershipTypeId { get; set; }
+        public bool IsSubscribedToNewsletter { get; set; }
     }
 }

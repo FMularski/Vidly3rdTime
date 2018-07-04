@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Vidly3rdTime.Models;
 using Vidly3rdTime.Models.DTO;
+using System.Data.Entity;
 
 namespace Vidly3rdTime.Controllers.API
 {
@@ -28,7 +29,10 @@ namespace Vidly3rdTime.Controllers.API
         [HttpGet]
         public IHttpActionResult GetCustomers()
         {
-            return Ok(Context.Customers.Select(Mapper.Map<Customer, CustomerDTO>));
+            return Ok(Context.Customers
+                .Include(c => c.MembershipType)
+                .ToList()
+                .Select(Mapper.Map<Customer, CustomerDTO>));
         }
 
         // /api/customers/1
