@@ -54,9 +54,9 @@ namespace Vidly3rdTime
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1101522773332795",
+               appSecret: "06c282093e9628842ad2c30a833bf135");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

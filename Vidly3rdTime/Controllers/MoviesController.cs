@@ -25,9 +25,13 @@ namespace Vidly3rdTime.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            if ( User.IsInRole(RoleName.CanManageMovies))
+                return View();
+
+            return View("ReadOnlyIndex");
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var vm = new MovieFormViewModel
@@ -38,6 +42,7 @@ namespace Vidly3rdTime.Controllers
             return View("MovieForm", vm);
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Save(MovieFormViewModel vm)
         {
             if ( !ModelState.IsValid)
@@ -70,6 +75,7 @@ namespace Vidly3rdTime.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit( int id)
         {
             var movie = Context.Movies.SingleOrDefault(m => m.Id == id);

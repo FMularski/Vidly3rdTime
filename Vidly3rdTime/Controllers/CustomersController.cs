@@ -28,6 +28,7 @@ namespace Vidly3rdTime.Controllers
             return View();
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New()
         {
             var vm = new CustomerFormViewModel()
@@ -64,6 +65,7 @@ namespace Vidly3rdTime.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var customer = Context.Customers.SingleOrDefault(c => c.Id == id);

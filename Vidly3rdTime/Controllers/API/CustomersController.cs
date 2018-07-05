@@ -49,6 +49,7 @@ namespace Vidly3rdTime.Controllers.API
 
         // /api/customers
         [HttpPost]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult CreateCustomer(CustomerDTO customerDTO)
         {
             if (!ModelState.IsValid)
@@ -66,6 +67,7 @@ namespace Vidly3rdTime.Controllers.API
 
         // /api/customers/1
         [HttpPut]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult UpdateCustomer(int id, CustomerDTO customerDTO)
         {
             var customerInDb = Context.Customers.SingleOrDefault(c => c.Id == id);
@@ -82,6 +84,7 @@ namespace Vidly3rdTime.Controllers.API
 
         // /api/customers/1
         [HttpDelete]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult DeleteCustomer(int id)
         {
             var customerInDb = Context.Customers.SingleOrDefault(c => c.Id == id);

@@ -8,6 +8,14 @@ namespace Vidly3rdTime.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Phone]
+        [MaxLength(50)]
+        public string Phone { get; set; }
+
+        [Required]
+        public string DrivingLicense { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -68,6 +76,15 @@ namespace Vidly3rdTime.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Phone]
+        [MaxLength(50)]
+        public string Phone { get; set; }
+
+        [Required]
+        [StringLength(255)]
+        public string DrivingLicense { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
