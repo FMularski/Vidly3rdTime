@@ -25,7 +25,7 @@ namespace Vidly3rdTime.Controllers
 
         public ActionResult Index()
         {
-            return View(Context.Movies.Include(m => m.Genre));
+            return View();
         }
 
         public ActionResult New()

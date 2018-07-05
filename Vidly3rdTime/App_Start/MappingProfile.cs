@@ -21,6 +21,9 @@ namespace Vidly3rdTime.App_Start
 
             Mapper.CreateMap<MembershipType, MembershipTypeDTO>();
             Mapper.CreateMap<MembershipTypeDTO, MembershipType>();
+
+            Mapper.CreateMap<Genre, GenreDTO>();
+            Mapper.CreateMap<GenreDTO, Genre>();
         }
     }
 }
