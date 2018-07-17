@@ -29,6 +29,7 @@ namespace Vidly3rdTime.Models
         public DbSet<Movie> Movies { get; set; }
         public DbSet<MembershipType> MembershipTypes { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Rental> Rentals { get; set; }
 
         public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false) { ; }
 
@@ -43,6 +44,7 @@ namespace Vidly3rdTime.Models
             modelBuilder.Configurations.Add(new MovieConfiguration());
             modelBuilder.Configurations.Add(new MembershipTypeConfiguration());
             modelBuilder.Configurations.Add(new ApplicationUserConfiguration());
+            modelBuilder.Configurations.Add(new RentalConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

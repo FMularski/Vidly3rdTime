@@ -27,12 +27,18 @@ namespace Vidly3rdTime.Controllers.API
 
         // /api/movies
         [HttpGet]
-        public IHttpActionResult GetMovies()
+        public IEnumerable<MovieDTO> GetMovies(string query = null)
         {
-            return Ok(Context.Movies
-                .Include( m => m.Genre)
+            var moviesQuery = Context.Movies
+                .Include(m => m.Genre)
+                .Where(m => m.NumberAvailable > 0);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                moviesQuery = moviesQuery.Where(m => m.Name.Contains(query));
+
+            return moviesQuery
                 .ToList()
-                .Select(Mapper.Map<Movie, MovieDTO>));
+                .Select(Mapper.Map<Movie, MovieDTO>);
         }
 
         // /api/movies/1

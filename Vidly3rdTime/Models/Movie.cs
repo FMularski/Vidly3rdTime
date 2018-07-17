@@ -14,5 +14,7 @@ namespace Vidly3rdTime.Models
         public DateTime DateRealesed { get; set; }
         public DateTime DateAdded { get; set; }
         public int NumberInStock { get; set; }
+        public int NumberAvailable { get; set; }
+        public List<Rental> Rentals { get; set; }
     }
 }

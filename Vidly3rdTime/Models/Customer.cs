@@ -13,5 +13,6 @@ namespace Vidly3rdTime.Models
         public MembershipType MembershipType { get; set; }
         public byte MembershipTypeId { get; set; }
         public DateTime? Birthdate { get; set; }
+        public List<Rental> Rentals { get; set; }
     }
 }
